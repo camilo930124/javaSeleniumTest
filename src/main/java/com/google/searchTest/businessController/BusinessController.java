@@ -10,8 +10,8 @@ public class BusinessController {
     private GoogleHome googleHome;
     private GoogleResults googleResults;
 
-    public BusinessController() {
-        webActions = new WebController();
+    public BusinessController(String path, String feature,String scenario) {
+        webActions = new WebController(path,feature,scenario);
     }
 
     public static void main(String[] args) {
@@ -82,7 +82,9 @@ public class BusinessController {
 
     public void compareTabURL(String expectedURL) {
         try {
+            webActions.takeScreenShot();
             String obtainedURL=webActions.getTabURL();
+
             System.out.println(obtainedURL);
             System.out.println(obtainedURL.equalsIgnoreCase(expectedURL));
         }catch (Exception e){

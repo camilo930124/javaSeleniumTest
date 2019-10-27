@@ -27,14 +27,14 @@ public class GoogleHome {
     private WebElement ulResults;
 
     public void typeSearch(String textToSearch) throws Exception{
-        webActions.sendTextToElement(inputSearchField,textToSearch,true);
+        webActions.sendTextToElement(inputSearchField,textToSearch,false);
         webActions.waitVisible(ulResults,30,true);
         webActions.clickElement(imgGoogle,false);
 
     }
     
     public void pressSearchButton() throws Exception {
-        webActions.clickElement(btnGoogleSearch,true);
+        webActions.clickElement(btnGoogleSearch,false);
     }
 
     public void checkPage() throws Exception{

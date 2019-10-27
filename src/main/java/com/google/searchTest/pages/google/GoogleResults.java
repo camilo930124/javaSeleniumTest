@@ -21,7 +21,7 @@ public class GoogleResults {
     }
 
     public String getFirstResult() {
-        return webActions.getTextFromElement(lnkResults.get(0),true);
+        return webActions.getTextFromElement(lnkResults.get(0),false);
     }
 
     public void clickFirstResult() {

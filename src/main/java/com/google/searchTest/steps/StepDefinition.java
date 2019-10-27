@@ -9,22 +9,28 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.io.FileInputStream;
+import java.util.Properties;
+
 
 public class StepDefinition {
 
     BusinessController businessController;
+    Properties prop = new Properties();
 
     @Before
     public void setUp(Scenario scenario){
-        businessController= new BusinessController();
+        try{prop.load(new FileInputStream("src/main/resources/properties/config.properties"));}catch (Exception e){e.printStackTrace();}
+        String path=prop.getProperty("evidencePath");
+
         String rawFeatureName = scenario.getId().split(";")[0].replace("-"," ");
         String scenarioName=scenario.getName();
         String featureName = rawFeatureName.substring(0, 1).toUpperCase() + rawFeatureName.substring(1);
+        businessController= new BusinessController(path,featureName,scenarioName);
     }
 
     @After
     public void tearDown() {
-
         businessController.closeBrowser();
     }
 
