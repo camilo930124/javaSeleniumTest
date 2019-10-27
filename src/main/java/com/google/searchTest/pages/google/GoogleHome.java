@@ -27,18 +27,17 @@ public class GoogleHome {
     private WebElement ulResults;
 
     public void typeSearch(String textToSearch) throws Exception{
-        webActions.sendTextToElement(inputSearchField,textToSearch,false);
-        webActions.waitVisible(ulResults,30,true);
-        webActions.clickElement(imgGoogle,false);
-
+        webActions.sendTextToElement(inputSearchField,"google search field",textToSearch,false);
+        webActions.waitVisible(ulResults,"google search field result list",30,true);
+        webActions.clickElement(imgGoogle,"google logo",false);
     }
     
     public void pressSearchButton() throws Exception {
-        webActions.clickElement(btnGoogleSearch,false);
+        webActions.clickElement(btnGoogleSearch,"google search button",false);
     }
 
     public void checkPage() throws Exception{
-        webActions.isVisible(btnGoogleSearch,30,true);
+        webActions.isVisible(btnGoogleSearch,"google search button",30,true);
     }
 
 }

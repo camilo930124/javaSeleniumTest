@@ -1,6 +1,7 @@
 package com.google.searchTest.steps;
 
 import com.google.searchTest.businessController.BusinessController;
+import com.google.searchTest.logs.Log;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -22,11 +23,11 @@ public class StepDefinition {
     public void setUp(Scenario scenario){
         try{prop.load(new FileInputStream("src/main/resources/properties/config.properties"));}catch (Exception e){e.printStackTrace();}
         String path=prop.getProperty("evidencePath");
-
         String rawFeatureName = scenario.getId().split(";")[0].replace("-"," ");
         String scenarioName=scenario.getName();
         String featureName = rawFeatureName.substring(0, 1).toUpperCase() + rawFeatureName.substring(1);
         businessController= new BusinessController(path,featureName,scenarioName);
+        Log.LOGGER.info("Prueba iniciada");
     }
 
     @After

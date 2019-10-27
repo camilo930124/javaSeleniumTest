@@ -17,14 +17,14 @@ public class GoogleResults {
     WebElement opcAllResults;
 
     public void checkPage() throws Exception{
-        webActions.isVisible(opcAllResults,30,true);
+        webActions.isVisible(opcAllResults,"all results option",30,true);
     }
 
     public String getFirstResult() {
-        return webActions.getTextFromElement(lnkResults.get(0),false);
+        return webActions.getTextFromElement(lnkResults.get(0),"first search result",false);
     }
 
     public void clickFirstResult() {
-        webActions.clickElement(lnkResults.get(0),false);
+        webActions.clickElement(lnkResults.get(0),"first search result",false);
     }
 }

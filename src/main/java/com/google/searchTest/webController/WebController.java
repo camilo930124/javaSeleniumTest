@@ -1,5 +1,6 @@
 package com.google.searchTest.webController;
 
+import com.google.searchTest.logs.Log;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -11,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
+import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -32,6 +34,7 @@ public class WebController {
         LocalDateTime now = LocalDateTime.now();
         path=path.concat(scenario).concat(dtf.format(now));
         new File(path).mkdir();
+        Log.initLogs(Paths.get(path), "Logger");
     }
 
     public WebDriver getDriver() {
@@ -55,50 +58,68 @@ public class WebController {
 
         //driver.Manage().Timeouts().ImplicitWait(30);
         driver.get(url);
+        Log.LOGGER.info("Driver selected: '".concat(browser).concat("'. The browser opened the following url: '".concat(url).concat("'.")));
     }
 
     public void closeWebApp()
     {
         driver.close();
         driver.quit();
+        Log.LOGGER.info("Driver closed");
     }
 
-    public void clickElement(WebElement element, Boolean takeScreenshot){
+    public void clickElement(WebElement element, String elementNameOrDescription, Boolean takeScreenshot){
         element.click();
         if(takeScreenshot) takeScreenShot();
+        Log.LOGGER.info("The element '".concat(elementNameOrDescription)
+                .concat("' was clicked. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
     }
 
-    public String getTextFromElement(WebElement element, Boolean takeScreenshot)
-    {
+    public String getTextFromElement(WebElement element,String elementNameOrDescription ,Boolean takeScreenshot) {
         if(takeScreenshot) takeScreenShot();
-        return element.getText();
+        String text= element.getText();
+        Log.LOGGER.info("The element '".concat(elementNameOrDescription)
+                .concat("' had the text '").concat(text).concat("'. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
+        return text;
     }
 
-    public void sendTextToElement(WebElement element, String text, boolean takeScreenshot) {
+    public void sendTextToElement(WebElement element, String elementNameOrDescription, String text, boolean takeScreenshot) {
         element.sendKeys(text);
         if(takeScreenshot) takeScreenShot();
+        Log.LOGGER.info("In the element '".concat(elementNameOrDescription)
+                .concat("' was written the string '").concat(text).concat("'. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
     }
 
-    public void waitVisible(WebElement element, int timeout, Boolean takeScreenshot) {
+    public void waitVisible(WebElement element, String elementNameOrDescription, int timeout, Boolean takeScreenshot) {
         WebDriverWait wait = new WebDriverWait(driver, timeout);
         wait.until(ExpectedConditions.visibilityOf(element));
         if(takeScreenshot) takeScreenShot();
+        Log.LOGGER.info("The element '".concat(elementNameOrDescription)
+                .concat("' was visible. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
     }
 
-    public boolean isVisible(WebElement element, int timeout, Boolean takeScreenshot) {
+    public boolean isVisible(WebElement element,String elementNameOrDescription, int timeout, boolean takeScreenshot) {
         try {
             WebDriverWait wait = new WebDriverWait(driver, timeout);
             wait.until(ExpectedConditions.visibilityOf(element));
             if(takeScreenshot) takeScreenShot();
+            Log.LOGGER.info("The element '".concat(elementNameOrDescription)
+                    .concat("' was visible. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
             return true;
         }catch (Exception e){
+            Log.LOGGER.info("The element '".concat(elementNameOrDescription)
+                    .concat("' wasn´t visible. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
             return false;
         }
 
     }
 
     public String getTabURL(){
-        return driver.getCurrentUrl();
+        String url= driver.getCurrentUrl();
+        Log.LOGGER.info("The browser url was '".concat(url)
+                .concat("'"));
+        return url;
+
     }
 
     public void takeScreenShot(){
