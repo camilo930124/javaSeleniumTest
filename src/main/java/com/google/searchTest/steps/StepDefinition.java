@@ -1,5 +1,6 @@
 package com.google.searchTest.steps;
 
+import com.cucumber.listener.ExtentProperties;
 import com.google.searchTest.businessController.BusinessController;
 import com.google.searchTest.logs.Log;
 import cucumber.api.Scenario;
@@ -23,10 +24,17 @@ public class StepDefinition {
     public void setUp(Scenario scenario){
         try{prop.load(new FileInputStream("src/main/resources/properties/config.properties"));}catch (Exception e){e.printStackTrace();}
         String path=prop.getProperty("evidencePath");
+
         String rawFeatureName = scenario.getId().split(";")[0].replace("-"," ");
         String scenarioName=scenario.getName();
         String featureName = rawFeatureName.substring(0, 1).toUpperCase() + rawFeatureName.substring(1);
         businessController= new BusinessController(path,featureName,scenarioName);
+
+        ExtentProperties extentProperties = ExtentProperties.INSTANCE;
+
+        extentProperties.setReportPath(businessController.getEvidencePath() + "ReporteEjecucion.html");
+        extentProperties.setProjectName(prop.getProperty("project.name"));
+
         Log.LOGGER.info("Test start");
         Log.LOGGER.info("Scenario: ".concat(scenarioName));
         Log.LOGGER.info("Seature: ".concat(featureName));
@@ -45,7 +53,12 @@ public class StepDefinition {
 
     @When("^I type 'The name of the wind' into the search field$")
     public void iTypeTheNameOfTheWindIntoTheSearchField() {
-        businessController.typeInGoogleSearchField("The name of the wind");
+        businessController.typeInGoogleSearchField("The name of the wind",true);
+    }
+
+    @When("^I type 'The name of the w' into the search field$")
+    public void iTypeTheNameOfTheWIntoTheSearchField() {
+        businessController.typeInGoogleSearchField("The Name of the w",false);
     }
 
     @And("^I click the Google Search button$")
@@ -71,5 +84,15 @@ public class StepDefinition {
     @Then("^I go to the 'Patrick Rothfuss - The Books' page$")
     public void iGoToThePatrickRothfussTheBooksPage() {
         businessController.compareTabURL("https://www.patrickrothfuss.com/content/books.asp");
+    }
+
+    @And("^the suggestions list is displayed$")
+    public void theSuggestionsListIsDisplayed() {
+        businessController.checkSuggestionListIsDisplayed();
+    }
+
+    @And("^I click on the first suggestion in the list$")
+    public void iClickOnTheFirstSuggestionInTheList() {
+        businessController.clickOnSpecificElementFromSuggestionList(0);
     }
 }

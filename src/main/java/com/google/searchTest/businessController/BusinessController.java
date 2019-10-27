@@ -11,9 +11,15 @@ public class BusinessController {
     public static WebController webActions;
     private GoogleHome googleHome;
     private GoogleResults googleResults;
+    private String evidencePath;
 
     public BusinessController(String path, String feature,String scenario) {
         webActions = new WebController(path,feature,scenario);
+        evidencePath=webActions.getEvidencePath();
+    }
+
+    public String getEvidencePath() {
+        return evidencePath;
     }
 
     public void goToGoogleHome(){
@@ -22,7 +28,8 @@ public class BusinessController {
             Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
             webActions.launchWebApp("Chrome", "http://www.google.com");
             googleHome = PageFactory.initElements(webActions.getDriver(),GoogleHome.class);
-            googleHome.checkPage();
+            boolean isGoogle=googleHome.checkPage();
+            Assert.assertTrue("The loaded page isn't google",isGoogle);
             Log.LOGGER.info("----------Operation successfully completed----------\n");
         }catch (Exception e){
             Log.LOGGER.info("Operation failed: ".concat(e.getMessage()));
@@ -30,6 +37,7 @@ public class BusinessController {
             Assert.fail();
         }
     }
+
 
     public void closeBrowser(){
         try{
@@ -39,12 +47,13 @@ public class BusinessController {
         }
     }
 
-    public void typeInGoogleSearchField(String searchString) {
+    public void typeInGoogleSearchField(String searchString, boolean closeSearchList) {
         String operation="Type in the google search field";
         try {
             Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
 
             googleHome.typeSearch(searchString);
+            if(closeSearchList) googleHome.closeSearchList();
 
             Log.LOGGER.info("----------Operation successfully completed----------\n");
         }catch (Exception e){
@@ -75,7 +84,8 @@ public class BusinessController {
             Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
 
             googleResults = PageFactory.initElements(webActions.getDriver(),GoogleResults.class);
-            googleResults.checkPage();
+            boolean isGoogleResultsPage=googleResults.checkPage();
+            Assert.assertTrue("The loaded page isn't google results page",isGoogleResultsPage);
 
             Log.LOGGER.info("----------Operation successfully completed----------\n");
         }catch (Exception e){
@@ -93,6 +103,22 @@ public class BusinessController {
             String resultObtained=googleResults.getFirstResult();
             Assert.assertEquals("the result was '".concat(resultObtained).concat("' but the expected is '")
                     .concat(resultExpected).concat("'."),resultObtained,resultExpected);
+
+            Log.LOGGER.info("----------Operation successfully completed----------\n");
+        }catch (Exception e){
+            Log.LOGGER.info("Operation failed: ".concat(e.getMessage()));
+            e.printStackTrace();
+            Assert.fail();
+        }
+    }
+
+    public void checkSuggestionListIsDisplayed() {
+        String operation="Check that the suggestion list is displayed";
+        try {
+            Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
+
+            boolean isSuggestionListVisible=googleHome.isSuggestionListVisible();
+            Assert.assertTrue("The suggestion list isn't displayed",isSuggestionListVisible);
 
             Log.LOGGER.info("----------Operation successfully completed----------\n");
         }catch (Exception e){
@@ -136,4 +162,20 @@ public class BusinessController {
     }
 
 
+    public void clickOnSpecificElementFromSuggestionList(int elementPosition) {
+        String operation="Click on specific element of the suggestion list";
+        try {
+            Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
+
+            int suggestedOptions=googleHome.getSuggestedOptionsQty();
+            if (suggestedOptions<(elementPosition+1)) throw new Exception("The list only have".concat(String.valueOf(suggestedOptions)).concat("elements"));
+            googleHome.clickOnElementFromSuggestionList(elementPosition);
+
+            Log.LOGGER.info("----------Operation successfully completed----------\n");
+        }catch (Exception e){
+            Log.LOGGER.info("Operation failed: ".concat(e.getMessage()));
+            e.printStackTrace();
+            Assert.fail();
+        }
+    }
 }

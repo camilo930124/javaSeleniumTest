@@ -16,8 +16,8 @@ public class GoogleResults {
     @FindBy(how = How.XPATH, using = "//div[@id='hdtb-msb-vis']/div[@aria-selected='true']")
     WebElement opcAllResults;
 
-    public void checkPage() throws Exception{
-        webActions.isVisible(opcAllResults,"all results option",30,true);
+    public boolean checkPage() throws Exception{
+        return webActions.isVisible(opcAllResults,"all results option",30,true);
     }
 
     public String getFirstResult() {

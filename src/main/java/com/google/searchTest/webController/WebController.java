@@ -18,12 +18,20 @@ import java.time.format.DateTimeFormatter;
 
 public class WebController {
     private WebDriver driver;
-    private String path;
+    private String evidencePath;
     private String feature;
     private int screenShotCounter;
 
-    public WebController(String path, String feature,String scenario) {
-        this.path = path;
+    public String getEvidencePath() {
+        return evidencePath;
+    }
+
+    public void setEvidencePath(String evidencePath) {
+        this.evidencePath = evidencePath;
+    }
+
+    public WebController(String path, String feature, String scenario) {
+        this.evidencePath = path;
         addDateToEvidencePath(scenario);
         this.feature = feature;
         screenShotCounter=0;
@@ -32,9 +40,9 @@ public class WebController {
     private void addDateToEvidencePath(String scenario){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("_yyyy-MM-dd_HH-mm/");
         LocalDateTime now = LocalDateTime.now();
-        path=path.concat(scenario).concat(dtf.format(now));
-        new File(path).mkdir();
-        Log.initLogs(Paths.get(path), "Logger");
+        evidencePath = evidencePath.concat(scenario).concat(dtf.format(now));
+        new File(evidencePath).mkdir();
+        Log.initLogs(Paths.get(evidencePath), "Logger");
     }
 
     public WebDriver getDriver() {
@@ -125,7 +133,7 @@ public class WebController {
     public void takeScreenShot(){
         TakesScreenshot scrShot =((TakesScreenshot)driver);
         File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
-        File DestFile=new File(path.concat(feature).concat("-").concat(String.valueOf(screenShotCounter)).concat(".png"));
+        File DestFile=new File(evidencePath.concat(feature).concat("-").concat(String.valueOf(screenShotCounter)).concat(".png"));
         try{FileUtils.copyFile(SrcFile, DestFile);}catch (Exception e){e.printStackTrace();}
         screenShotCounter++;
     }
