@@ -79,7 +79,7 @@ public class WebController {
         if(takeScreenshot) takeScreenShot();
         String text= element.getText();
         Log.LOGGER.info("The element '".concat(elementNameOrDescription)
-                .concat("' had the text '").concat(text).concat("'. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
+                .concat("' has the text '").concat(text).concat("'. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
         return text;
     }
 
@@ -95,7 +95,7 @@ public class WebController {
         wait.until(ExpectedConditions.visibilityOf(element));
         if(takeScreenshot) takeScreenShot();
         Log.LOGGER.info("The element '".concat(elementNameOrDescription)
-                .concat("' was visible. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
+                .concat("' is visible. Screenshot taken: ").concat(String.valueOf(takeScreenshot)));
     }
 
     public boolean isVisible(WebElement element,String elementNameOrDescription, int timeout, boolean takeScreenshot) {
@@ -116,7 +116,7 @@ public class WebController {
 
     public String getTabURL(){
         String url= driver.getCurrentUrl();
-        Log.LOGGER.info("The browser url was '".concat(url)
+        Log.LOGGER.info("The browser url is '".concat(url)
                 .concat("'"));
         return url;
 

@@ -27,12 +27,15 @@ public class StepDefinition {
         String scenarioName=scenario.getName();
         String featureName = rawFeatureName.substring(0, 1).toUpperCase() + rawFeatureName.substring(1);
         businessController= new BusinessController(path,featureName,scenarioName);
-        Log.LOGGER.info("Prueba iniciada");
+        Log.LOGGER.info("Test start");
+        Log.LOGGER.info("Scenario: ".concat(scenarioName));
+        Log.LOGGER.info("Seature: ".concat(featureName));
     }
 
     @After
     public void tearDown() {
         businessController.closeBrowser();
+        Log.LOGGER.info("Test end");
     }
 
     @Given("I’m on the homepage$")
