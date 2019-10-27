@@ -30,6 +30,14 @@ public class BusinessController {
         }
     }
 
+    public void closeBrowser(){
+        try{
+            webActions.closeWebApp();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     public void typeInGoogleSearchField(String searchString) {
         try {
             googleHome.typeSearch(searchString);

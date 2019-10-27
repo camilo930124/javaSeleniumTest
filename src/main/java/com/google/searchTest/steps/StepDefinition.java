@@ -2,6 +2,7 @@ package com.google.searchTest.steps;
 
 import com.google.searchTest.businessController.BusinessController;
 import cucumber.api.Scenario;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -19,6 +20,12 @@ public class StepDefinition {
         String rawFeatureName = scenario.getId().split(";")[0].replace("-"," ");
         String scenarioName=scenario.getName();
         String featureName = rawFeatureName.substring(0, 1).toUpperCase() + rawFeatureName.substring(1);
+    }
+
+    @After
+    public void tearDown() {
+
+        businessController.closeBrowser();
     }
 
     @Given("I’m on the homepage$")
