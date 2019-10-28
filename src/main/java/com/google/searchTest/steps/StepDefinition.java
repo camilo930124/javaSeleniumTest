@@ -73,12 +73,12 @@ public class StepDefinition {
 
     @And("^the first result is 'The Name of the Wind - Patrick Rothfuss'$")
     public void theFirstResultIsTheNameOfTheWindPatrickRothfuss() {
-        businessController.checkFirstSearchResult("The Name of the Wind - Patrick Rothfuss");
+        businessController.checkSpecificSearchResult("The Name of the Wind - Patrick Rothfuss",0);
     }
 
     @When("^I click on the first result link$")
     public void iClickOnTheFirstResultLink() {
-        businessController.clickOnFirstSearchResult();
+        businessController.clickOnSpecificSearchResult(0);
     }
 
     @Then("^I go to the 'Patrick Rothfuss - The Books' page$")

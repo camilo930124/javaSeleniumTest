@@ -94,12 +94,12 @@ public class BusinessController {
         }
     }
 
-    public void checkFirstSearchResult(String resultExpected) {
+    public void checkSpecificSearchResult(String resultExpected, int position) {
         String operation="Check the first google result";
         try {
             Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
 
-            String resultObtained=googleResults.getFirstResult();
+            String resultObtained=googleResults.getSpecificResult(position);
             Assert.assertEquals("the result was '".concat(resultObtained).concat("' but the expected is '")
                     .concat(resultExpected).concat("'."),resultObtained,resultExpected);
 
@@ -127,12 +127,12 @@ public class BusinessController {
         }
     }
 
-    public void clickOnFirstSearchResult() {
+    public void clickOnSpecificSearchResult(int position) {
         String operation="Click on the first search result";
         try {
             Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
 
-            googleResults.clickFirstResult();
+            googleResults.clickFirstResult(position);
 
             Log.LOGGER.info("----------Operation successfully completed----------\n");
         }catch (Exception e){

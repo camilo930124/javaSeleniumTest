@@ -20,11 +20,11 @@ public class GoogleResults {
         return webActions.isVisible(opcAllResults,"all results option",30,true);
     }
 
-    public String getFirstResult() {
-        return webActions.getTextFromElement(lnkResults.get(0),"first search result",false);
+    public String getSpecificResult(int position) {
+        return webActions.getTextFromElement(lnkResults.get(position),"first search result",false);
     }
 
-    public void clickFirstResult() {
-        webActions.clickElement(lnkResults.get(0),"first search result",false);
+    public void clickFirstResult(int position) {
+        webActions.clickElement(lnkResults.get(position),"first search result",false);
     }
 }

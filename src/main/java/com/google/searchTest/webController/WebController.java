@@ -50,6 +50,7 @@ public class WebController {
     
     public void launchWebApp(String browser, String url)
     {
+        String so=System.getProperty("os.name");
         switch (browser)
         {
             case "Firefox":
@@ -59,6 +60,11 @@ public class WebController {
                 driver=new FirefoxDriver();
                 break;
             case "Chrome":
+                if(so.contains("Linux")) {
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriverLinux");
+                }else{
+                    System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
+                }
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("start-maximized");
                 chromeOptions.addArguments("incognito");
