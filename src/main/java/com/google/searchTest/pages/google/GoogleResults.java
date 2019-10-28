@@ -11,10 +11,10 @@ import static com.google.searchTest.businessController.BusinessController.webAct
 
 public class GoogleResults {
     @FindBy(how = How.XPATH, using = "//div[@id='search']//h3")
-    List<WebElement> lnkResults;
+    private List<WebElement> lnkResults;
 
     @FindBy(how = How.XPATH, using = "//div[@id='hdtb-msb-vis']/div[@aria-selected='true']")
-    WebElement opcAllResults;
+    private WebElement opcAllResults;
 
     public boolean checkPage() throws Exception{
         return webActions.isVisible(opcAllResults,"all results option",30,true);

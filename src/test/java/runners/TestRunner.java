@@ -1,11 +1,9 @@
 package runners;
 
-import com.cucumber.listener.ExtentProperties;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 import java.io.File;
@@ -21,10 +19,10 @@ import java.io.File;
 public class TestRunner {
 
 
-/*    @AfterClass
+    @AfterClass
     public static void teardown() {
         Reporter.loadXMLConfig(new File("src/test/resources/extent-config.xml"));
-    }*/
+    }
 
 }
 

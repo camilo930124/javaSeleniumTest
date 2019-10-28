@@ -7,7 +7,7 @@ formatter.feature({
   "keyword": "Feature"
 });
 formatter.before({
-  "duration": 3417269200,
+  "duration": 2996563600,
   "status": "passed"
 });
 formatter.scenario({
@@ -63,35 +63,35 @@ formatter.match({
   "location": "StepDefinition.ImOnTheHomepage()"
 });
 formatter.result({
-  "duration": 10170448500,
+  "duration": 9351640500,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.iTypeTheNameOfTheWindIntoTheSearchField()"
 });
 formatter.result({
-  "duration": 1211993600,
+  "duration": 1263973200,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.iClickTheGoogleSearchButton()"
 });
 formatter.result({
-  "duration": 1202513000,
+  "duration": 2065640200,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.iGoToTheSearchResultsPage()"
 });
 formatter.result({
-  "duration": 1082482800,
+  "duration": 537931300,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss()"
 });
 formatter.result({
-  "duration": 45265100,
+  "duration": 43324700,
   "error_message": "org.junit.ComparisonFailure: the result was \u0027The Name of the Wind - Wikipedia\u0027 but the expected is \u0027The Name of the Wind - Patrick Rothfuss\u0027. expected:\u003c... Name of the Wind - [Wikipedia]\u003e but was:\u003c... Name of the Wind - [Patrick Rothfuss]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:103)\r\n\tat com.google.searchTest.steps.StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss(StepDefinition.java:76)\r\n\tat ✽.And the first result is \u0027The Name of the Wind - Patrick Rothfuss\u0027(GoogleSearch.feature:9)\r\n",
   "status": "failed"
 });
@@ -108,11 +108,11 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 4685280200,
+  "duration": 4707295100,
   "status": "passed"
 });
 formatter.before({
-  "duration": 21709400,
+  "duration": 8941700,
   "status": "passed"
 });
 formatter.scenario({
@@ -173,42 +173,42 @@ formatter.match({
   "location": "StepDefinition.ImOnTheHomepage()"
 });
 formatter.result({
-  "duration": 7148280400,
+  "duration": 7784595900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.iTypeTheNameOfTheWIntoTheSearchField()"
 });
 formatter.result({
-  "duration": 190627900,
+  "duration": 182773100,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.theSuggestionsListIsDisplayed()"
 });
 formatter.result({
-  "duration": 961881900,
+  "duration": 941477100,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.iClickOnTheFirstSuggestionInTheList()"
 });
 formatter.result({
-  "duration": 1601946100,
+  "duration": 1613014900,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.iGoToTheSearchResultsPage()"
 });
 formatter.result({
-  "duration": 665617200,
+  "duration": 679297200,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss()"
 });
 formatter.result({
-  "duration": 41278400,
+  "duration": 43396200,
   "error_message": "org.junit.ComparisonFailure: the result was \u0027The Name of the Wind - Wikipedia\u0027 but the expected is \u0027The Name of the Wind - Patrick Rothfuss\u0027. expected:\u003c... Name of the Wind - [Wikipedia]\u003e but was:\u003c... Name of the Wind - [Patrick Rothfuss]\u003e\r\n\tat org.junit.Assert.assertEquals(Assert.java:115)\r\n\tat com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:103)\r\n\tat com.google.searchTest.steps.StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss(StepDefinition.java:76)\r\n\tat ✽.And the first result is \u0027The Name of the Wind - Patrick Rothfuss\u0027(GoogleSearch.feature:21)\r\n",
   "status": "failed"
 });
@@ -225,7 +225,7 @@ formatter.result({
   "status": "skipped"
 });
 formatter.after({
-  "duration": 4795032400,
+  "duration": 4740421300,
   "status": "passed"
 });
 });

@@ -28,9 +28,6 @@ public class WebController {
         return evidencePath;
     }
 
-    public void setEvidencePath(String evidencePath) {
-        this.evidencePath = evidencePath;
-    }
 
     public WebController(String path, String feature, String scenario) {
         this.evidencePath = path;
@@ -56,9 +53,9 @@ public class WebController {
         switch (browser)
         {
             case "Firefox":
-                FirefoxOptions firefoxOptionsoptions = new FirefoxOptions();
-                firefoxOptionsoptions.addArguments("start-maximized");
-                firefoxOptionsoptions.addArguments("incognito");
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.addArguments("start-maximized");
+                firefoxOptions.addArguments("incognito");
                 driver=new FirefoxDriver();
                 break;
             case "Chrome":

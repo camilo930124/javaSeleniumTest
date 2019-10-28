@@ -3,7 +3,6 @@ package com.google.searchTest.pages.google;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-
 import java.util.List;
 
 import static com.google.searchTest.businessController.BusinessController.webActions;

@@ -160,7 +160,6 @@ public class BusinessController {
         }
     }
 
-
     public void clickOnSpecificElementFromSuggestionList(int elementPosition) {
         String operation="Click on specific element of the suggestion list";
         try {
