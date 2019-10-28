@@ -26,7 +26,7 @@ public class BusinessController {
         String operation="Go to google home page";
         try {
             Log.LOGGER.info("----------Operation: ".concat(operation).concat("----------"));
-            webActions.launchWebApp("Chrome", "http://www.google.com");
+            webActions.launchWebApp("Firefox", "http://www.google.com");
             googleHome = PageFactory.initElements(webActions.getDriver(),GoogleHome.class);
             boolean isGoogle=googleHome.checkPage();
             Assert.assertTrue("The loaded page isn't google",isGoogle);
@@ -37,7 +37,6 @@ public class BusinessController {
             Assert.fail();
         }
     }
-
 
     public void closeBrowser(){
         try{
