@@ -14,16 +14,17 @@ import java.io.File;
 @CucumberOptions(
         features = "src/main/resources/features/"
         , glue = {"com/google/searchTest/steps/"}
-        , plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumber-reports/cucumberReport.json","com.cucumber.listener.ExtentCucumberFormatter:"}
+        , plugin = {"pretty", "html:target/cucumber-reports", "json:target/cucumberProyectoBase.json","com.cucumber.listener.ExtentCucumberFormatter:"}
         , tags = {"@GoogleSearch"}
 )
 
 public class TestRunner {
 
-    @AfterClass
+
+/*    @AfterClass
     public static void teardown() {
         Reporter.loadXMLConfig(new File("src/test/resources/extent-config.xml"));
-    }
+    }*/
 
 }
 

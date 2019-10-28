@@ -4,7 +4,7 @@
 
 
 <head>
-	<meta charset='ISO 8859-1' /> 
+	<meta charset='utf-8' /> 
 	<meta name='description' content='' />
 	<meta name='robots' content='noodp, noydir' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
@@ -15,7 +15,7 @@
 
 		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
 	
-	<title>Search Test - Google</title>
+	<title>ExtentReports</title>
 
 	<style type='text/css'>
 	</style>
@@ -39,7 +39,7 @@
 		</ul>
 
 		<!-- report name -->
-		<span class='report-name'>Google search test report</span>
+		<span class='report-name'>ExtentReports</span>
 		
 		<!-- report headline -->
 		<span class='report-headline'></span>
@@ -48,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Oct 27, 2019 09:13:01 PM</span>
+                    <span class='label suite-start-time blue darken-3'>Oct 28, 2019 09:45:12 AM</span>
 				</a>
 			</li>
 			<li>
@@ -186,7 +186,7 @@
 				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Google Homepage Search</span>
-						<span class='test-time'>Oct 27, 2019 09:13:01 PM</span>
+						<span class='test-time'>Oct 28, 2019 09:45:12 AM</span>
 						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
@@ -194,7 +194,7 @@
 	<div class='category-list'>
 		<span class='category label white-text'>@GoogleSearch</span>
 	</div>
-	<span class='duration right label'>0h 0m 30s+738ms</span>
+	<span class='duration right label'>0h 0m 17s+325ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">User can search with 'Google Search'</span>
@@ -237,9 +237,9 @@
 			<b>And</b>
 			
 			<span class="bdd-step-name">And the first result is 'The Name of the Wind - Patrick Rothfuss'</span>
-				<div class='pre'><textarea>org.junit.ComparisonFailure: the result was 'El nombre del viento - Wikipedia, la enciclopedia libre' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<[El nombre del viento - Wikipedia, la enciclopedia libre]> but was:<[The Name of the Wind - Patrick Rothfuss]>
+				<div class='pre'><textarea>org.junit.ComparisonFailure: the result was 'The Name of the Wind - Wikipedia' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<... Name of the Wind - [Wikipedia]> but was:<... Name of the Wind - [Patrick Rothfuss]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
-	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:104)
+	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:103)
 	at com.google.searchTest.steps.StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss(StepDefinition.java:76)
 	at ✽.And the first result is 'The Name of the Wind - Patrick Rothfuss'(GoogleSearch.feature:9)
 </textarea></div>
@@ -267,7 +267,7 @@
 	<div class='category-list'>
 		<span class='category label white-text'>@GoogleSearch</span>
 	</div>
-	<span class='duration right label'>0h 0m 12s+568ms</span>
+	<span class='duration right label'>0h 0m 10s+653ms</span>
 	<div class='desc'>
 		<b>Scenario</b>
 		<span class="desc-text">User can search by using the suggestions</span>
@@ -318,9 +318,9 @@
 			<b>And</b>
 			
 			<span class="bdd-step-name">And the first result is 'The Name of the Wind - Patrick Rothfuss'</span>
-				<div class='pre'><textarea>org.junit.ComparisonFailure: the result was 'El nombre del viento - Wikipedia, la enciclopedia libre' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<[El nombre del viento - Wikipedia, la enciclopedia libre]> but was:<[The Name of the Wind - Patrick Rothfuss]>
+				<div class='pre'><textarea>org.junit.ComparisonFailure: the result was 'The Name of the Wind - Wikipedia' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<... Name of the Wind - [Wikipedia]> but was:<... Name of the Wind - [Patrick Rothfuss]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
-	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:104)
+	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:103)
 	at com.google.searchTest.steps.StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss(StepDefinition.java:76)
 	at ✽.And the first result is 'The Name of the Wind - Patrick Rothfuss'(GoogleSearch.feature:21)
 </textarea></div>
@@ -421,12 +421,12 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Oct 27, 2019 09:13:01 PM</td>
+										<td>Oct 28, 2019 09:45:12 AM</td>
 										<td class='linked' test-id='2'>Google Homepage Search.User can search with 'Google Search'</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 									<tr>
-										<td>Oct 27, 2019 09:13:39 PM</td>
+										<td>Oct 28, 2019 09:45:34 AM</td>
 										<td class='linked' test-id='10'>Google Homepage Search.User can search by using the suggestions</td>
 										<td><span class='test-status fail'>fail</span></td>
 									</tr>
@@ -489,21 +489,21 @@
                                         </thead>
                                         <tbody>
                                                     <tr>
-                                                        <td>Oct 27, 2019 09:13:32 PM</td>
+                                                        <td>Oct 28, 2019 09:45:29 AM</td>
                                                         <td class='linked' test-id='7'>Google Homepage Search.User can search with 'Google Search'.And the first result is 'The Name of the Wind - Patrick Rothfuss'</td>
-                                                        <td><pre><textarea>org.junit.ComparisonFailure: the result was 'El nombre del viento - Wikipedia, la enciclopedia libre' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<[El nombre del viento - Wikipedia, la enciclopedia libre]> but was:<[The Name of the Wind - Patrick Rothfuss]>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: the result was 'The Name of the Wind - Wikipedia' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<... Name of the Wind - [Wikipedia]> but was:<... Name of the Wind - [Patrick Rothfuss]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
-	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:104)
+	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:103)
 	at com.google.searchTest.steps.StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss(StepDefinition.java:76)
 	at ✽.And the first result is 'The Name of the Wind - Patrick Rothfuss'(GoogleSearch.feature:9)
 </textarea></pre></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Oct 27, 2019 09:13:51 PM</td>
+                                                        <td>Oct 28, 2019 09:45:45 AM</td>
                                                         <td class='linked' test-id='16'>Google Homepage Search.User can search by using the suggestions.And the first result is 'The Name of the Wind - Patrick Rothfuss'</td>
-                                                        <td><pre><textarea>org.junit.ComparisonFailure: the result was 'El nombre del viento - Wikipedia, la enciclopedia libre' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<[El nombre del viento - Wikipedia, la enciclopedia libre]> but was:<[The Name of the Wind - Patrick Rothfuss]>
+                                                        <td><pre><textarea>org.junit.ComparisonFailure: the result was 'The Name of the Wind - Wikipedia' but the expected is 'The Name of the Wind - Patrick Rothfuss'. expected:<... Name of the Wind - [Wikipedia]> but was:<... Name of the Wind - [Patrick Rothfuss]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
-	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:104)
+	at com.google.searchTest.businessController.BusinessController.checkFirstSearchResult(BusinessController.java:103)
 	at com.google.searchTest.steps.StepDefinition.theFirstResultIsTheNameOfTheWindPatrickRothfuss(StepDefinition.java:76)
 	at ✽.And the first result is 'The Name of the Wind - Patrick Rothfuss'(GoogleSearch.feature:21)
 </textarea></pre></td>
@@ -550,19 +550,19 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Oct 27, 2019 09:13:01 PM</div>
+					<div class='panel-lead'>Oct 28, 2019 09:45:12 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Oct 27, 2019 09:13:58 PM</div>
+			 		<div class='panel-lead'>Oct 28, 2019 09:45:50 AM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>57,240ms</div>
+					<div class='panel-lead'>38,024ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -631,14 +631,6 @@
 		
 		
  		<script type='text/javascript'>
- 			
-    
-        $(document).ready(function() {
-            $('#parentWithoutNodes').prop("checked", true).click();
-            $('#test-count-setting > div.modal-footer > a')[0].click();
-        });
-    
-
  		</script>
 	</body>
 	

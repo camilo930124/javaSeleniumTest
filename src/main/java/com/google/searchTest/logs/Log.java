@@ -24,7 +24,7 @@ public class Log {
     private static final String CONSOLE_APPENDER_NAME = "CONSOLE_APPENDER";
 
 
-    private static final String TEST_LOGFILE_NAME = "Logs/TestLog.log";
+    private static final String TEST_LOGFILE_NAME = "TestLog.log";
     private static final String TEST_LOGGER_NAME = "Test";
     private static final String TESTS_APPENDER_NAME = "TEST_APPENDER";
 
@@ -48,6 +48,7 @@ public class Log {
     }
 
     public static void initLogs(Path evidenceDirectory, String projectFolder) {
+
         PatternLayout layout = createPattern();
         configureBasicLoggers(evidenceDirectory, projectFolder, layout);
         context.updateLoggers();
